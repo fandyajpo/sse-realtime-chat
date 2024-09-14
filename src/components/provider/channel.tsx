@@ -7,9 +7,12 @@ export const ChannelProvider = (props: PropsWithChildren) => {
   const { dispatch } = useStore();
 
   useEffect(() => {
-    const source = new EventSource("http://localhost:3001/sse", {
-      withCredentials: true,
-    });
+    const source = new EventSource(
+      process.env.NEXT_PUBLIC_BACKEND_API + "sse",
+      {
+        withCredentials: true,
+      }
+    );
 
     source.onmessage = (event) => {
       const parsed = JSON.parse(event?.data);
