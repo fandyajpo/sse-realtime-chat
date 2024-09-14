@@ -4,7 +4,7 @@ export const POST = async (req: Request) => {
   try {
     const body = await req.json();
 
-    const response = await fetch(process.env.BACKEND_API + "auth", {
+    const response = await fetch(process.env.NEXT_PUBLIC_BACKEND_API + "auth", {
       method: "POST",
       credentials: "include",
       headers: {
